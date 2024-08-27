@@ -2,25 +2,25 @@
 
 ## Features
 
-- **View Posts:**
-- **Search Posts:**
-- **Add Posts:**
-- **Delete Posts:**
-- **Responsive Design:**
-- **User Authentication:**
-  - **Registration:**
-  - **Login:**
-  - **Logout:**
+- **View Posts**
+- **Search Posts**
+- **Add Posts**
+- **Delete Posts**
+- **Responsive Design**
+- **User Authentication**
+  - **Registration**
+  - **Login**
+  - **Logout**
 
 ## Technologies Used
 
-- **React:**
-- **React Router:**
-- **Firebase:**
-- **React Toastify:**
-- **React Spinners:**
-- **React Icons:**
-- **JSONPlaceholder API:**
+- **React**
+- **React Router**
+- **Firebase**
+- **React Toastify**
+- **React Spinners**
+- **React Icons**
+- **JSONPlaceholder API**
 
 ## Live Demo
 
