@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
+import PostDetail from "../components/PostDetail";
 import Login from "../pages/Login";
 import Posts from "../pages/Posts";
 import Registration from "../pages/Registration";
@@ -15,6 +16,14 @@ const router = createBrowserRouter([
         element: (
           <ProtectedRoute>
             <Posts />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "//posts/:id",
+        element: (
+          <ProtectedRoute>
+            <PostDetail />
           </ProtectedRoute>
         ),
       },

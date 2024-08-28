@@ -3,6 +3,7 @@
 ## Features
 
 - **View Posts**
+- **View Post Details**
 - **Search Posts**
 - **Add Posts**
 - **Delete Posts**

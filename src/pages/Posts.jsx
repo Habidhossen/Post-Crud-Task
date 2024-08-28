@@ -10,13 +10,13 @@ const Posts = () => {
   const [posts, setPosts] = useState([]);
   const [searchValue, setSearchValue] = useState("");
   const [title, setTitle] = useState("");
-  const [body, setBody] = useState("");
+  const [content, setContent] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   // fetch posts from api
   useEffect(() => {
     try {
-      fetch("https://jsonplaceholder.typicode.com/posts")
+      fetch("https://jsonplaceholder.org/posts")
         .then((response) => response.json())
         .then((json) => setPosts(json));
     } catch (error) {
@@ -27,7 +27,7 @@ const Posts = () => {
   // delete post
   const handleDeletePost = (postId) => {
     try {
-      fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`, {
+      fetch(`https://jsonplaceholder.org/posts/${postId}`, {
         method: "DELETE",
       });
       setPosts(posts.filter((post) => post.id !== postId));
@@ -42,22 +42,19 @@ const Posts = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch(
-        "https://jsonplaceholder.typicode.com/posts",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ id: Date.now(), title, body }),
-        }
-      );
+      const response = await fetch("https://jsonplaceholder.org/posts", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ id: Date.now(), title, content }),
+      });
       const newPost = await response.json();
       setPosts([newPost, ...posts]);
 
       // reset form fields
       setTitle("");
-      setBody("");
+      setContent("");
       // close modal
       setIsModalOpen(false);
       // show toast
@@ -105,7 +102,7 @@ const Posts = () => {
 
         {/* Content */}
         <section>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-8">
             {filteredPosts.map((post) => (
               <PostCard
                 post={post}
@@ -141,14 +138,14 @@ const Posts = () => {
                 <div className="mb-4">
                   <label
                     className="block text-gray-700 font-semibold mb-2"
-                    htmlFor="body"
+                    htmlFor="content"
                   >
-                    Body
+                    Content
                   </label>
                   <textarea
-                    id="body"
-                    value={body}
-                    onChange={(e) => setBody(e.target.value)}
+                    id="content"
+                    value={content}
+                    onChange={(e) => setContent(e.target.value)}
                     className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-green-500"
                     rows="5"
                     required
